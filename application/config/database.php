@@ -55,6 +55,7 @@ $DefaultConnection = str_replace("User Id=", "UserId=", $DefaultConnection);
 parse_str($DefaultConnection, $ConnStrParts);
 
 $db['default']['hostname'] = 'localhost';
+$db['default']['port']     = getenv('WEBSITE_MYSQL_PORT');
 $db['default']['username'] = '';
 $db['default']['password'] = '';
 $db['default']['database'] = '';
