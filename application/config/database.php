@@ -48,16 +48,21 @@
 $active_group = ENVIRONMENT;
 $active_record = TRUE;
 
+/*
 $DefaultConnection = getenv('MYSQLCONNSTR_localdb');
+*/
+$DefaultConnection = file_get_contents('/d/home/data/mysql/MYSQLCONNSTR_localdb.txt');
 $DefaultConnection = str_replace(";", "&", $DefaultConnection);
 $DefaultConnection = str_replace("Data Source=", "DataSource=", $DefaultConnection);
 $DefaultConnection = str_replace("User Id=", "UserId=", $DefaultConnection);
 parse_str($DefaultConnection, $ConnStrParts);
 
+/*
 $db['default']['hostname'] = 'localhost';
 $db['default']['port']     = getenv('WEBSITE_MYSQL_PORT');
 $db['default']['username'] = '';
 $db['default']['password'] = '';
+*/
 $db['default']['database'] = '';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
